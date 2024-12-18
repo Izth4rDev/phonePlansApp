@@ -25,6 +25,9 @@ public class Plan {
     @Column(name = "price", nullable = false)
     private double price;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "service_provided", nullable = false, length = 200)
     private String serviceProvided;
 

@@ -29,6 +29,9 @@ public class Client {
     @Column(name = "address", nullable = false, length = 60)
     private String address;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "birth_date",nullable = false)
     private LocalDate birthDate;
 
