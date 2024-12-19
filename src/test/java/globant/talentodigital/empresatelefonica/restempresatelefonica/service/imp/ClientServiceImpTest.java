@@ -48,7 +48,6 @@ class ClientServiceImpTest {
          clientDtoTest.setBirthDate(LocalDate.of(1988,11,18));
          clientDtoTest.setIsActive(true);
          clientDtoTest.setAddress("Test avenue");
-
      }
 
     @Test
@@ -63,7 +62,7 @@ class ClientServiceImpTest {
         List<ClientDto> clientDtos = clientServiceImp.getAllDtos();
 
         assertEquals(1, clientDtos.size(), "la lista debe tener un elemento");
-        assertEquals("Test", clientDtos.get(0).getName());
+        assertEquals("Test", clientDtos.get(0).getName(), "el nombre debe ser test");
     }
 
 }
