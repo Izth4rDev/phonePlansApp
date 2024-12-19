@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IContractRepository extends JpaRepository<Contract, Long> {
+    long countByClientId(Long clientId);
 }

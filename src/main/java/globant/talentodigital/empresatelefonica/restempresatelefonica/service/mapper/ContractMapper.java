@@ -24,9 +24,19 @@ public class ContractMapper implements IMapperDTO<Contract, ContractDto>, IMappe
     @Override
     public ContractDto toDto(Contract entity) {
 
+        double originalPrice = entity.getPlan().getPrice();
+        double discountedPrice = originalPrice;
+
+        // Calcular descuento
+        if (entity.getClient().getContracts().size() > 1) {
+            discountedPrice = originalPrice - (originalPrice * 0.10); // Aplicar 10% de descuento
+        }
+
         ContractDto dto = new ContractDto();
         dto.setEndDate(entity.getEndDate());
         dto.setStartDate(entity.getStartDate());
+        dto.setOriginalPrice(originalPrice);
+        dto.setDiscountedPrice(discountedPrice);
 
         return dto;
     }

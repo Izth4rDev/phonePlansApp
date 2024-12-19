@@ -8,6 +8,7 @@ import globant.talentodigital.empresatelefonica.restempresatelefonica.service.IM
 import globant.talentodigital.empresatelefonica.restempresatelefonica.service.IUpdateService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class PlanServiceImp implements IBaseDtoService<PlanDto>, IUpdateService<
         return mapper.toDto(planRepository.findById(id).orElseThrow(()-> new RuntimeException("Plan not found")));
     }
 
+    @Transactional
     @Override
     public PlanDto updateStatus(Long id, Boolean isActive) {
 

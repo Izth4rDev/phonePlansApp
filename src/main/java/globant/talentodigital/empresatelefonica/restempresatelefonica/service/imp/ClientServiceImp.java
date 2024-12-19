@@ -40,5 +40,4 @@ public class ClientServiceImp implements IBaseDtoService<ClientDto>, IUpdateServ
 
         return clientDtoMapper.toDto(client);
     }
-
 }

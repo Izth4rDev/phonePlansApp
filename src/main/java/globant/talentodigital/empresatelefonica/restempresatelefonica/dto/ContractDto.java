@@ -13,4 +13,6 @@ import java.time.LocalDate;
 public class ContractDto {
     private LocalDate startDate;
     private LocalDate endDate;
+    private double originalPrice;
+    private double discountedPrice;
 }
