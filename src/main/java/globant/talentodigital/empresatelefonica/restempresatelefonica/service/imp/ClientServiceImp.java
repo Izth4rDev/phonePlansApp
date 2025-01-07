@@ -27,7 +27,9 @@ public class ClientServiceImp implements IBaseDtoService<ClientDto>, IUpdateServ
 
     @Override
     public ClientDto getDtoById(Long id) {
-        return clientDtoMapper.toDto(clientRepository.findById(id).get());
+        return clientRepository.findById(id)
+                .map(clientDtoMapper::toDto)  // Si el cliente está presente, mapéalo
+                .orElse(null);
     }
 
     @Transactional

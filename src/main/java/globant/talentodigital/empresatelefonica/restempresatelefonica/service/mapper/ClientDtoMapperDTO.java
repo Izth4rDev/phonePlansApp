@@ -13,6 +13,8 @@ public class ClientDtoMapperDTO implements IMapperDTO<Client, ClientDto> {
     @Override
     public ClientDto toDto(Client entity) {
 
+        if(entity == null) return null;
+
         ClientDto dto = new ClientDto();
         dto.setName(entity.getName());
         dto.setIsActive(entity.getIsActive());
@@ -25,6 +27,9 @@ public class ClientDtoMapperDTO implements IMapperDTO<Client, ClientDto> {
 
     @Override
     public List<ClientDto> toDtos(List<Client> entities) {
+
+        if(entities == null) return List.of();
+
         return entities.stream().map(this::toDto).toList();
     }
 }
